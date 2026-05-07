@@ -196,8 +196,10 @@ h1, h2, h3, h4, .logo-text { font-family: 'Outfit', sans-serif; }
 }
 .hero-img.hologram-effect {
     width: 100%; max-width: 560px;
-    mix-blend-mode: lighten;
-    filter: drop-shadow(0 0 30px rgba(67,97,238,0.6)) drop-shadow(0 0 70px rgba(114,9,183,0.4)) brightness(1.1);
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 30px rgba(67,97,238,0.6)) drop-shadow(0 0 70px rgba(114,9,183,0.4)) brightness(1.2);
+    -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+    mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
     animation: floatHologram 5s ease-in-out infinite, glitch 4s infinite alternate;
     border-radius: 8px;
     position: relative;
@@ -376,13 +378,13 @@ footer { padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); backgr
 .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
 .footer-brand h3 { font-size: 1.8rem; margin-bottom: 1rem; }
 .footer-brand p { color: var(--text-muted); margin-bottom: 1.5rem; }
-.social-links { display: flex; gap: 1rem; }
+.social-links { display: flex; gap: 1.5rem; margin-top: 1.5rem; }
 .social-links a {
-    display: flex; align-items: center; justify-content: center; width: 45px; height: 45px;
+    display: flex; align-items: center; justify-content: center; width: 60px; height: 60px;
     border-radius: 50%; background: rgba(255,255,255,0.05); color: var(--text-main);
-    transition: all 0.3s ease; border: 1px solid transparent;
+    transition: all 0.3s ease; border: 1px solid transparent; font-size: 1.8rem;
 }
-.social-links a:hover { background: var(--primary); transform: translateY(-3px); border-color: rgba(255,255,255,0.2); box-shadow: 0 5px 15px var(--primary-glow); }
+.social-links a:hover { background: var(--primary); transform: translateY(-5px); border-color: rgba(255,255,255,0.2); box-shadow: 0 5px 20px var(--primary-glow); }
 .footer-links h4, .footer-contact h4 { margin-bottom: 1.5rem; font-size: 1.2rem; color: #fff; }
 .footer-links a { display: block; color: var(--text-muted); text-decoration: none; margin-bottom: 0.8rem; transition: color 0.3s ease; }
 .footer-links a:hover { color: var(--primary); transform: translateX(5px); }
