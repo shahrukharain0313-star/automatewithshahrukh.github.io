@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automate with Shahrukh | Premium Digital Agency</title>
+    <meta name="description" content="We help local businesses scale with premium web development and AI automation solutions.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <img src="images/logo.png" alt="AWS Logo" style="height: 40px; border-radius: 8px;">
+                <span class="logo-text">Automate with <span class="highlight">Shahrukh</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#services">Capabilities</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="#contact" class="btn btn-outline">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <div class="floating-badge">Advanced AI & Automation Agency</div>
+            <h1 class="hero-title">Scale Your Business with <span class="highlight-gradient">Intelligent Automation</span></h1>
+            <p class="hero-subtitle">We build premium AI assistants, automated trading bots, YouTube automation systems, and powerful web applications that skyrocket your revenue.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                <a href="packages.html" class="btn btn-secondary"><i class="fas fa-tags"></i> View Budget Ideas</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <section id="expertise" class="expertise-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core <span class="highlight">Expertise</span></h2>
+                <p>Delivering high-end technology solutions that actually move the needle.</p>
+            </div>
+            
+            <div class="expertise-showcase">
+                <!-- Showcase 1 -->
+                <div class="showcase-row">
+                    <div class="showcase-content" data-aos="fade-right">
+                        <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                        <h3>Intelligent WhatsApp AI Assistants</h3>
+                        <p>Imagine having a customer support agent that never sleeps. We build AI chatbots that understand human language, answer queries, capture leads, and book appointments directly through WhatsApp.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> OpenAI / ChatGPT Integration</li>
+                            <li><i class="fas fa-check-circle"></i> Custom Knowledge Base Training</li>
+                            <li><i class="fas fa-check-circle"></i> Seamless Lead Capture Flow</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-image glass-panel" data-aos="fade-left">
+                        <img src="images/whatsapp_bot.png" alt="WhatsApp AI Bot">
+                    </div>
+                </div>
+
+                <!-- Showcase 2 -->
+                <div class="showcase-row reverse">
+                    <div class="showcase-content" data-aos="fade-left">
+                        <div class="icon-box"><i class="fas fa-chart-line"></i></div>
+                        <h3>Algorithmic Trading & Dashboards</h3>
+                        <p>Remove emotion from trading. We develop custom crypto and stock trading bots with rigorous risk management, deployed alongside high-tech custom dashboards to monitor your performance in real-time.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Binance, Bybit & API Integrations</li>
+                            <li><i class="fas fa-check-circle"></i> Automated Strategy Execution</li>
+                            <li><i class="fas fa-check-circle"></i> Premium Analytics Dashboards</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-image glass-panel" data-aos="fade-right">
+                        <img src="images/dashboard.png" alt="Automation Dashboard">
+                    </div>
+                </div>
+
+                <!-- Showcase 3 -->
+                <div class="showcase-row">
+                    <div class="showcase-content" data-aos="fade-right">
+                        <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
+                        <h3>YouTube Automation & Web Dev</h3>
+                        <p>From one-click automated video upload systems to stunning, lightning-fast agency websites. We handle the heavy lifting so you can focus on building your brand.</p>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> YouTube API Auto-Uploaders</li>
+                            <li><i class="fas fa-check-circle"></i> Web Scraping & Data Extraction</li>
+                            <li><i class="fas fa-check-circle"></i> High-Converting Premium Websites</li>
+                        </ul>
+                    </div>
+                    <div class="showcase-image glass-panel" data-aos="fade-left">
+                        <img src="images/coding.png" alt="Coding Workspace">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Unlimited <span class="highlight">Capabilities</span></h2>
+                <p>Automation covers 1,000+ possibilities. If you can imagine a digital workflow, we can build it.</p>
+            </div>
+            <div class="services-grid large-grid">
+                <div class="service-card glass-panel" data-aos="zoom-up">
+                    <div class="service-icon"><i class="fas fa-spider"></i></div>
+                    <h3>Web Scraping</h3>
+                    <p>Extract massive data from any website into clean Excel/CSV formats.</p>
+                </div>
+                <div class="service-card glass-panel" data-aos="zoom-up">
+                    <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>Email Automation</h3>
+                    <p>Cold outreach bots and automated follow-ups to close more deals.</p>
+                </div>
+                <div class="service-card glass-panel" data-aos="zoom-up">
+                    <div class="service-icon"><i class="fab fa-youtube"></i></div>
+                    <h3>Social Media Bots</h3>
+                    <p>Auto-publish content across YouTube, Insta, and FB with zero effort.</p>
+                </div>
+                <div class="service-card glass-panel" data-aos="zoom-up">
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>API Integrations</h3>
+                    <p>Connect your CRM, Shopify, and accounting software seamlessly.</p>
+                </div>
+                <div class="service-card glass-panel" data-aos="zoom-up">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3>AI Voice Agents</h3>
+                    <p>Voice-enabled bots that can answer phone calls for your local business.</p>
+                </div>
+                <div class="service-card glass-panel" data-aos="zoom-up">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Custom Python Scripts</h3>
+                    <p>Bespoke scripting to eliminate any repetitive daily computer tasks.</p>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="packages.html" class="btn btn-outline glow-btn">View Budget Packages <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-card glass-panel glow-border">
+                <h2>Let's Build Something <span class="highlight">Great</span></h2>
+                <p>Ready to automate your workflow and build a strong online presence?</p>
+                <div class="contact-info">
+                    <a href="mailto:shahrukharain0313@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> shahrukharain0313@gmail.com
+                    </a>
+                    <a href="https://wa.me/923178172607" target="_blank" class="contact-link whatsapp-link">
+                        <i class="fab fa-whatsapp"></i> +92 317 8172607
+                    </a>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/shahrukharain0313@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_subject" value="New Client Lead - Automate with Shahrukh!">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select name="service" class="custom-select" required>
+                            <option value="" disabled selected>What do you need help with?</option>
+                            <option value="whatsapp">WhatsApp AI Bot</option>
+                            <option value="trading">Trading Bot</option>
+                            <option value="web">Web Development</option>
+                            <option value="youtube">YouTube Automation</option>
+                            <option value="other">Other Custom Automation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Tell us about your project" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h3>Automate with <span class="highlight">Shahrukh</span></h3>
+                <p>Empowering businesses with premium tech.</p>
+                <div class="social-links">
+                    <a href="https://youtube.com/@automatewithshahrukh?si=WxEPKkkNp6utAdZB" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/automatewithshahrukh" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/automatewithshahrukh?igsh=MWc4ZG1lbXo4YmFycA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#expertise">Expertise</a>
+                <a href="packages.html">Packages</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>shahrukharain0313@gmail.com</p>
+                <p>Available for Local & Remote Projects</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Automate with Shahrukh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
