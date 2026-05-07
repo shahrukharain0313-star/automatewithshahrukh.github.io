@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automate with Shahrukh | Premium Digital Agency</title>
-    <meta name="description" content="We help local businesses scale with premium web development and AI automation solutions.">
+    <title>Automate with Shahrukh | Premium AI & Automation Agency</title>
+    <meta name="description" content="We build WhatsApp AI bots, trading bots, YouTube automation & premium websites. Pakistan's top automation agency.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <canvas id="particles"></canvas>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/923178172607" target="_blank" class="whatsapp-float" id="whatsappFloat" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip">Chat with us!</span>
+    </a>
+
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
@@ -19,8 +26,11 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#stats">Results</a></li>
                 <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#services">Capabilities</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="packages.html">Packages</a></li>
                 <li><a href="#contact" class="btn btn-outline">Contact Us</a></li>
             </ul>
@@ -30,6 +40,7 @@
         </div>
     </nav>
 
+    <!-- HERO -->
     <header id="home" class="hero">
         <div class="hero-bg"></div>
         <div class="container hero-content">
@@ -46,15 +57,42 @@
         </div>
     </header>
 
+    <!-- LIVE STATS -->
+    <section id="stats" class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-panel" data-aos="fade-up">
+                    <div class="stat-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card glass-panel" data-aos="fade-up">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-number" data-target="30">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card glass-panel" data-aos="fade-up">
+                    <div class="stat-icon"><i class="fas fa-code"></i></div>
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Hours of Code</div>
+                </div>
+                <div class="stat-card glass-panel" data-aos="fade-up">
+                    <div class="stat-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="stat-number" data-target="5">0</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERTISE -->
     <section id="expertise" class="expertise-section">
         <div class="container">
             <div class="section-header">
                 <h2>Our Core <span class="highlight">Expertise</span></h2>
                 <p>Delivering high-end technology solutions that actually move the needle.</p>
             </div>
-            
             <div class="expertise-showcase">
-                <!-- Showcase 1 -->
                 <div class="showcase-row">
                     <div class="showcase-content" data-aos="fade-right">
                         <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
@@ -70,8 +108,6 @@
                         <img src="images/whatsapp_bot.png" alt="WhatsApp AI Bot" loading="lazy">
                     </div>
                 </div>
-
-                <!-- Showcase 2 -->
                 <div class="showcase-row reverse">
                     <div class="showcase-content" data-aos="fade-left">
                         <div class="icon-box"><i class="fas fa-chart-line"></i></div>
@@ -87,8 +123,6 @@
                         <img src="images/dashboard.png" alt="Automation Dashboard" loading="lazy">
                     </div>
                 </div>
-
-                <!-- Showcase 3 -->
                 <div class="showcase-row">
                     <div class="showcase-content" data-aos="fade-right">
                         <div class="icon-box"><i class="fas fa-laptop-code"></i></div>
@@ -108,6 +142,7 @@
         </div>
     </section>
 
+    <!-- CAPABILITIES -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
@@ -152,6 +187,232 @@
         </div>
     </section>
 
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our <span class="highlight">Portfolio</span></h2>
+                <p>Real projects. Real results. See what we've built for our clients.</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="bot">AI Bots</button>
+                <button class="filter-btn" data-filter="web">Websites</button>
+                <button class="filter-btn" data-filter="trading">Trading</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card glass-panel" data-category="bot" data-aos="fade-up">
+                    <div class="portfolio-img">
+                        <img src="images/portfolio_whatsapp.png" alt="WhatsApp AI Bot Project" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="btn btn-primary">Get Similar</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">AI Bot</span>
+                        <h3>WhatsApp AI Assistant</h3>
+                        <p>24/7 customer support bot for a local cable internet business — handles billing, complaints & new orders automatically.</p>
+                        <div class="portfolio-result"><i class="fas fa-chart-line"></i> Result: 60% less support calls</div>
+                    </div>
+                </div>
+                <div class="portfolio-card glass-panel" data-category="trading" data-aos="fade-up">
+                    <div class="portfolio-img">
+                        <img src="images/portfolio_trading.png" alt="Trading Bot Project" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="btn btn-primary">Get Similar</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Trading Bot</span>
+                        <h3>Crypto Trading Dashboard</h3>
+                        <p>Automated Binance bot with RSI + MACD strategy, real-time P&L dashboard and Telegram alerts.</p>
+                        <div class="portfolio-result"><i class="fas fa-chart-line"></i> Result: 12% monthly return (backtested)</div>
+                    </div>
+                </div>
+                <div class="portfolio-card glass-panel" data-category="web" data-aos="fade-up">
+                    <div class="portfolio-img">
+                        <img src="images/portfolio_website.png" alt="Website Project" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="btn btn-primary">Get Similar</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Web Dev</span>
+                        <h3>Premium Bakery Website</h3>
+                        <p>Full landing page with online order form, WhatsApp integration, and Google Maps for a local bakery client.</p>
+                        <div class="portfolio-result"><i class="fas fa-chart-line"></i> Result: 3x more online orders</div>
+                    </div>
+                </div>
+                <div class="portfolio-card glass-panel" data-category="bot" data-aos="fade-up">
+                    <div class="portfolio-img">
+                        <img src="images/whatsapp_bot.png" alt="YouTube Automation" loading="lazy">
+                        <div class="portfolio-overlay">
+                            <a href="#contact" class="btn btn-primary">Get Similar</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <span class="portfolio-tag">Automation</span>
+                        <h3>YouTube Auto-Uploader</h3>
+                        <p>One-click Python script that renders, adds thumbnails, titles, descriptions and uploads to YouTube on schedule.</p>
+                        <div class="portfolio-result"><i class="fas fa-chart-line"></i> Result: 10 videos/day automated</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTUBE VIDEOS -->
+    <section id="youtube" class="youtube-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Watch Us <span class="highlight">In Action</span></h2>
+                <p>Learn automation for free on our YouTube channel. New videos every week!</p>
+            </div>
+            <div class="youtube-grid">
+                <div class="yt-card glass-panel" data-aos="fade-up">
+                    <div class="yt-embed">
+                        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=automatewithshahrukh" 
+                            title="Automate with Shahrukh YouTube" frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="yt-info">
+                        <span class="yt-tag"><i class="fab fa-youtube"></i> Latest Video</span>
+                        <h3>Automate with Shahrukh Channel</h3>
+                        <p>Watch our latest tutorials on AI automation, Python bots, and more.</p>
+                    </div>
+                </div>
+                <div class="yt-channel-cta glass-panel" data-aos="fade-up">
+                    <div class="yt-channel-icon"><i class="fab fa-youtube"></i></div>
+                    <h3>Subscribe for Free Tutorials</h3>
+                    <p>Get weekly automation tutorials, bot-building guides, and behind-the-scenes of our projects — completely free.</p>
+                    <ul class="yt-benefits">
+                        <li><i class="fas fa-check-circle"></i> Python Automation Tutorials</li>
+                        <li><i class="fas fa-check-circle"></i> WhatsApp Bot Step-by-Step</li>
+                        <li><i class="fas fa-check-circle"></i> YouTube Automation Secrets</li>
+                        <li><i class="fas fa-check-circle"></i> Trading Bot Strategies</li>
+                    </ul>
+                    <a href="https://youtube.com/@automatewithshahrukh" target="_blank" class="btn btn-youtube">
+                        <i class="fab fa-youtube"></i> Subscribe Now — It's Free!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLIENT REVIEWS -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Clients <span class="highlight">Say</span></h2>
+                <p>Real feedback from real people we've worked with.</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card glass-panel" data-aos="fade-up">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Shahrukh ne hamare business ke liye ek amazing WhatsApp bot banaya. Ab customers ko instant replies milti hain aur hamare staff ka 60% time bachta hai. Bohat professional kaam!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">AK</div>
+                        <div class="reviewer-info">
+                            <h4>Ahmed Khan</h4>
+                            <span>Cable Internet Business Owner, Lahore</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card glass-panel" data-aos="fade-up">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Website bilkul waise bani jaise main chahta tha — dark theme, smooth animations, aur WhatsApp integration sab perfect. Clients ko bohat pasand aa rahi hai. Highly recommended!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">MR</div>
+                        <div class="reviewer-info">
+                            <h4>Muhammad Raza</h4>
+                            <span>Bakery Owner, Karachi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card glass-panel" data-aos="fade-up">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Trading bot ka kaam outstanding hai. Backtesting results dekh ke main hairan reh gaya. Shahrukh ka technical knowledge bohat strong hai aur woh explain bhi clearly karta hai."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">SB</div>
+                        <div class="reviewer-info">
+                            <h4>Saad Butt</h4>
+                            <span>Crypto Trader, Islamabad</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="review-card glass-panel" data-aos="fade-up">
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"YouTube automation script ne meri life change kar di. 10 videos daily automatically upload hoti hain. Budget bhi reasonable tha. Agende hire karo agar serious ho!"</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">FA</div>
+                        <div class="reviewer-info">
+                            <h4>Fatima Aslam</h4>
+                            <span>YouTube Content Creator</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest From Our <span class="highlight">Blog</span></h2>
+                <p>Free knowledge, tips & automation secrets every week.</p>
+            </div>
+            <div class="blog-grid">
+                <article class="blog-card glass-panel" data-aos="fade-up">
+                    <div class="blog-img-wrap">
+                        <img src="images/whatsapp_bot.png" alt="WhatsApp Bot Guide" loading="lazy">
+                        <span class="blog-cat">AI Bots</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta"><i class="far fa-calendar"></i> May 2026 &nbsp;·&nbsp; <i class="far fa-clock"></i> 5 min read</div>
+                        <h3>How to Build a WhatsApp AI Bot for Your Business in 2026</h3>
+                        <p>Step-by-step guide on connecting ChatGPT to WhatsApp using Python and Twilio. No coding experience needed.</p>
+                        <a href="https://youtube.com/@automatewithshahrukh" target="_blank" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card glass-panel" data-aos="fade-up">
+                    <div class="blog-img-wrap">
+                        <img src="images/dashboard.png" alt="Trading Bot Guide" loading="lazy">
+                        <span class="blog-cat">Trading</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta"><i class="far fa-calendar"></i> April 2026 &nbsp;·&nbsp; <i class="far fa-clock"></i> 7 min read</div>
+                        <h3>Build a Binance Trading Bot with Python in Under 1 Hour</h3>
+                        <p>Learn how to set up a basic RSI strategy bot on Binance Futures using the CCXT library and Python.</p>
+                        <a href="https://youtube.com/@automatewithshahrukh" target="_blank" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <article class="blog-card glass-panel" data-aos="fade-up">
+                    <div class="blog-img-wrap">
+                        <img src="images/coding.png" alt="YouTube Automation Guide" loading="lazy">
+                        <span class="blog-cat">Automation</span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="blog-meta"><i class="far fa-calendar"></i> April 2026 &nbsp;·&nbsp; <i class="far fa-clock"></i> 6 min read</div>
+                        <h3>YouTube Automation: Upload 10 Videos Daily with Python</h3>
+                        <p>Using YouTube Data API v3 and Python to schedule, render and auto-upload videos without touching your PC.</p>
+                        <a href="https://youtube.com/@automatewithshahrukh" target="_blank" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="container">
             <div class="contact-card glass-panel glow-border">
@@ -169,7 +430,6 @@
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New Client Lead - Automate with Shahrukh!">
                     <input type="hidden" name="_template" value="table">
-                    
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Your Name" required>
                     </div>
@@ -204,17 +464,21 @@
                     <a href="https://youtube.com/@automatewithshahrukh?si=WxEPKkkNp6utAdZB" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.facebook.com/automatewithshahrukh" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/automatewithshahrukh?igsh=MWc4ZG1lbXo4YmFycA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/923178172607" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-links">
                 <h4>Quick Links</h4>
                 <a href="#home">Home</a>
-                <a href="#expertise">Expertise</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#blog">Blog</a>
                 <a href="packages.html">Packages</a>
             </div>
             <div class="footer-contact">
                 <h4>Contact</h4>
                 <p>shahrukharain0313@gmail.com</p>
+                <p>+92 317 8172607</p>
                 <p>Available for Local & Remote Projects</p>
             </div>
         </div>
