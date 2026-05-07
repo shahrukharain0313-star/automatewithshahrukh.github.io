@@ -256,8 +256,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero3DContainer = document.getElementById('hero-3d-container');
     if(hero3DContainer && typeof THREE !== 'undefined') {
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(60, hero3DContainer.clientWidth / hero3DContainer.clientHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        const camera = new THREE.PerspectiveCamera(45, hero3DContainer.clientWidth / hero3DContainer.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: "high-performance" });
         
         renderer.setSize(hero3DContainer.clientWidth, hero3DContainer.clientHeight);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -266,83 +266,116 @@ document.addEventListener('DOMContentLoaded', () => {
         const brainGroup = new THREE.Group();
         scene.add(brainGroup);
 
-        const particlesCount = 2500;
-        const positions = new Float32Array(particlesCount * 3);
-        const colors = new Float32Array(particlesCount * 3);
-        const color1 = new THREE.Color(0x4cc9f0);
-        const color2 = new THREE.Color(0xf72585);
+        // Procedural Brain Geometry
+        const geometry = new THREE.IcosahedronGeometry(1.6, 5); // Detail level 5 gives lots of vertices
+        const positions = geometry.attributes.position;
+        
+        // Arrays for custom colors
+        const colors = new Float32Array(positions.count * 3);
+        const colorBlue = new THREE.Color(0x4cc9f0);
+        const colorPink = new THREE.Color(0xf72585);
 
-        for(let i = 0; i < particlesCount * 3; i+=3) {
-            const u = Math.random() * Math.PI;
-            const v = Math.random() * 2 * Math.PI;
-            let x = 1.6 * Math.sin(u) * Math.cos(v);
-            let y = 1.2 * Math.sin(u) * Math.sin(v);
-            let z = 1.4 * Math.cos(u);
-            
-            if (x > 0) x += 0.2;
-            else x -= 0.2;
+        for (let i = 0; i < positions.count; i++) {
+            let x = positions.getX(i);
+            let y = positions.getY(i);
+            let z = positions.getZ(i);
 
-            positions[i] = x + (Math.random() - 0.5) * 0.4;
-            positions[i+1] = y + (Math.random() - 0.5) * 0.4;
-            positions[i+2] = z + (Math.random() - 0.5) * 0.4;
+            // Shape into brain
+            if (y < -0.3) y *= 0.6; // flatten bottom
+            z *= 1.15; // elongate front-to-back
+            x *= 0.85; // narrow sides
 
-            const mixedColor = color1.clone().lerp(color2, Math.random());
-            colors[i] = mixedColor.r;
-            colors[i+1] = mixedColor.g;
-            colors[i+2] = mixedColor.b;
+            // Longitudinal fissure (indent middle)
+            let distFromCenter = Math.abs(x);
+            if (distFromCenter < 0.4 && y > 0) {
+                let indent = (0.4 - distFromCenter) * 1.2;
+                y -= indent;
+                z += (Math.random() - 0.5) * 0.1; // slight organic variation in the fissure
+            }
+
+            // Brain folds (gyri and sulci) using noise
+            let noise = Math.sin(x * 6) * Math.cos(y * 6) * Math.sin(z * 6) * 0.12;
+            x += noise * x;
+            y += noise * y;
+            z += noise * z;
+
+            positions.setXYZ(i, x, y, z);
+
+            // Color mix based on height and depth
+            const mixRatio = (y + 1.5) / 3.0 + (Math.random() * 0.2);
+            const mixedColor = colorBlue.clone().lerp(colorPink, mixRatio);
+            colors[i*3] = mixedColor.r;
+            colors[i*3+1] = mixedColor.g;
+            colors[i*3+2] = mixedColor.b;
         }
-
-        const geometry = new THREE.BufferGeometry();
-        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        
+        geometry.computeVertexNormals();
         geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-        const canvas = document.createElement('canvas');
-        canvas.width = 32;
-        canvas.height = 32;
-        const context = canvas.getContext('2d');
-        const gradient = context.createRadialGradient(16, 16, 0, 16, 16, 16);
-        gradient.addColorStop(0, 'rgba(255,255,255,1)');
-        gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
-        gradient.addColorStop(1, 'rgba(255,255,255,0)');
-        context.fillStyle = gradient;
-        context.fillRect(0, 0, 32, 32);
-        const texture = new THREE.CanvasTexture(canvas);
+        // Material for Points (The glowing nodes)
+        const particleTexture = new THREE.CanvasTexture((() => {
+            const c = document.createElement('canvas');
+            c.width = 32; c.height = 32;
+            const ctx = c.getContext('2d');
+            const grad = ctx.createRadialGradient(16,16,0,16,16,16);
+            grad.addColorStop(0, 'rgba(255,255,255,1)');
+            grad.addColorStop(0.3, 'rgba(255,255,255,0.7)');
+            grad.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.fillStyle = grad;
+            ctx.fillRect(0,0,32,32);
+            return c;
+        })());
 
-        const material = new THREE.PointsMaterial({
-            size: 0.08,
+        const pointsMat = new THREE.PointsMaterial({
+            size: 0.05,
             vertexColors: true,
-            map: texture,
+            map: particleTexture,
             transparent: true,
             opacity: 0.9,
             blending: THREE.AdditiveBlending,
             depthWrite: false
         });
 
-        const particlesMesh = new THREE.Points(geometry, material);
+        const particlesMesh = new THREE.Points(geometry, pointsMat);
         brainGroup.add(particlesMesh);
 
-        const coreGeo = new THREE.IcosahedronGeometry(0.8, 1);
-        const coreMat = new THREE.MeshBasicMaterial({
-            color: 0x4361ee,
-            wireframe: true,
+        // Material for Wireframe (The neural connections)
+        const wireframeGeo = new THREE.WireframeGeometry(geometry);
+        const lineMat = new THREE.LineBasicMaterial({
+            color: 0x4cc9f0,
             transparent: true,
-            opacity: 0.15,
+            opacity: 0.12,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+        const linesMesh = new THREE.LineSegments(wireframeGeo, lineMat);
+        brainGroup.add(linesMesh);
+
+        // Floating glowing data bits inside
+        const coreGeo = new THREE.BufferGeometry();
+        const corePos = new Float32Array(300);
+        for(let i=0; i<300; i++) {
+            corePos[i] = (Math.random() - 0.5) * 2;
+        }
+        coreGeo.setAttribute('position', new THREE.BufferAttribute(corePos, 3));
+        const coreMat = new THREE.PointsMaterial({
+            color: 0xffffff,
+            size: 0.04,
+            transparent: true,
+            opacity: 0.6,
             blending: THREE.AdditiveBlending
         });
-        const core1 = new THREE.Mesh(coreGeo, coreMat);
-        core1.position.x = -0.6;
-        brainGroup.add(core1);
-        
-        const core2 = new THREE.Mesh(coreGeo, coreMat);
-        core2.position.x = 0.6;
-        brainGroup.add(core2);
+        const coreMesh = new THREE.Points(coreGeo, coreMat);
+        brainGroup.add(coreMesh);
 
-        camera.position.z = 4.5;
+        // Initial rotation to show the best angle
+        brainGroup.rotation.y = -Math.PI / 6;
+        brainGroup.rotation.x = Math.PI / 12;
+
+        camera.position.set(0, 0, 5.5);
         
         let mouseX = 0;
         let mouseY = 0;
-        let targetX = 0;
-        let targetY = 0;
 
         document.addEventListener('mousemove', (event) => {
             mouseX = (event.clientX - window.innerWidth / 2) * 0.001;
@@ -355,22 +388,21 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(animate3D);
             const elapsedTime = clock.getElapsedTime();
 
-            targetX = mouseX * 0.5;
-            targetY = mouseY * 0.5;
+            // Slow rotation
+            brainGroup.rotation.y += 0.0015;
             
-            brainGroup.rotation.y += 0.002;
-            brainGroup.rotation.x = Math.sin(elapsedTime * 0.5) * 0.1;
+            // Gentle floating
+            brainGroup.position.y = Math.sin(elapsedTime * 1.5) * 0.05;
             
-            brainGroup.rotation.y += (targetX - brainGroup.rotation.y) * 0.05;
-            brainGroup.rotation.x += (targetY - brainGroup.rotation.x) * 0.05;
-
-            const scale = 1 + Math.sin(elapsedTime * 2) * 0.02;
-            brainGroup.scale.set(scale, scale, scale);
+            // Mouse interactivity (tilt)
+            brainGroup.rotation.x += (mouseY - brainGroup.rotation.x) * 0.05;
             
-            core1.rotation.y -= 0.01;
-            core1.rotation.x -= 0.005;
-            core2.rotation.y -= 0.01;
-            core2.rotation.x -= 0.005;
+            // Core points moving randomly
+            const positions = coreMesh.geometry.attributes.position.array;
+            for(let i=0; i<300; i+=3) {
+                positions[i+1] += Math.sin(elapsedTime + i) * 0.002;
+            }
+            coreMesh.geometry.attributes.position.needsUpdate = true;
 
             renderer.render(scene, camera);
         };
