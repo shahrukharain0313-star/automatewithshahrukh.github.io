@@ -131,8 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         height = canvas.height = window.innerHeight;
         particles = [];
 
-        // Fewer particles = smoother performance
-        const count = Math.min(Math.floor(window.innerWidth / 22), 55);
+        // Premium particle count
+        const count = Math.min(Math.floor(window.innerWidth / 10), 110);
         for(let i = 0; i < count; i++) {
             const isPink = Math.random() > 0.5;
             particles.push({
