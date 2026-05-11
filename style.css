@@ -217,6 +217,8 @@ h1, h2, h3, h4, .logo-text { font-family: 'Outfit', sans-serif; }
     animation: scan 3s linear infinite;
     z-index: 5;
     opacity: 0.8;
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
 }
 
 
