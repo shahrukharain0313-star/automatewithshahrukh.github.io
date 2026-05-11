@@ -185,6 +185,7 @@ h1, h2, h3, h4, .logo-text { font-family: 'Outfit', sans-serif; }
     align-items: center; justify-content: center;
     z-index: 2;
     width: 100%;
+    perspective: 1000px;
 }
 .hologram-container {
     position: relative;
@@ -193,13 +194,14 @@ h1, h2, h3, h4, .logo-text { font-family: 'Outfit', sans-serif; }
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: rotateContainer 6s linear infinite;
 }
 .hero-img.hologram-effect {
     width: 100%; max-width: 560px;
     mix-blend-mode: screen;
     filter: drop-shadow(0 0 30px rgba(67,97,238,0.6)) drop-shadow(0 0 70px rgba(114,9,183,0.4)) brightness(1.2);
-    -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
-    mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+    -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
+    mask-image: radial-gradient(circle at center, black 40%, transparent 85%);
     animation: floatHologram 5s ease-in-out infinite, glitch 4s infinite alternate;
     border-radius: 8px;
     position: relative;
@@ -216,6 +218,12 @@ h1, h2, h3, h4, .logo-text { font-family: 'Outfit', sans-serif; }
     animation: scan 3s linear infinite;
     z-index: 5;
     opacity: 0.8;
+}
+
+@keyframes rotateContainer {
+    0% { transform: rotateY(0deg); }
+    85% { transform: rotateY(360deg); }
+    100% { transform: rotateY(360deg); }
 }
 
 @keyframes floatHologram {
