@@ -539,6 +539,7 @@ footer { padding: 4rem 0 2rem; border-top: 1px solid var(--border-color); backgr
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     display: flex; align-items: center; justify-content: center;
     font-weight: 700; font-size: 1rem; flex-shrink: 0;
+    object-fit: cover;
 }
 .reviewer-info h4 { font-size: 1rem; margin-bottom: 0.2rem; }
 .reviewer-info span { color: var(--text-muted); font-size: 0.85rem; }
