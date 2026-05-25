@@ -69,8 +69,63 @@
       ]
     }
     </script>
+
+    <!-- FAQ Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the complexity. Simple scripts take 1-3 days, WhatsApp bots take 5-7 days, and full web applications can take 2-4 weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What payment methods do you accept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We accept Visa/Mastercard (via Payoneer), USDT (TRC20), JazzCash, EasyPaisa, and direct bank transfer (Faysal Bank)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer revisions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Every project includes 2-3 rounds of revisions within the agreed scope."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide support after delivery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We provide 7-14 days of free support after project delivery. Extended support plans are also available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you work with international clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! We work with clients from Pakistan, UK, UAE, and USA via WhatsApp, email, or Zoom."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <canvas id="particles"></canvas>
 
     <!-- WhatsApp Floating Button -->
@@ -137,17 +192,17 @@
             <div class="stats-grid">
                 <div class="stat-card glass-panel" data-aos="fade-up">
                     <div class="stat-icon"><i class="fas fa-rocket"></i></div>
-                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-number" data-target="150">0</div>
                     <div class="stat-label">Projects Completed</div>
                 </div>
                 <div class="stat-card glass-panel" data-aos="fade-up">
                     <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-number" data-target="120">0</div>
                     <div class="stat-label">Happy Clients</div>
                 </div>
                 <div class="stat-card glass-panel" data-aos="fade-up">
                     <div class="stat-icon"><i class="fas fa-code"></i></div>
-                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-number" data-target="8000">0</div>
                     <div class="stat-label">Hours of Code</div>
                 </div>
                 <div class="stat-card glass-panel" data-aos="fade-up">
@@ -483,6 +538,150 @@
         </div>
     </section>
 
+    <!-- ABOUT ME -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet <span class="highlight">Shahrukh</span></h2>
+                <p>The person behind Automate with Shahrukh.</p>
+            </div>
+            <div class="about-container">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="about-img-wrapper">
+                        <img src="images/logo.png" alt="Shahrukh - Founder" loading="lazy">
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <div class="floating-badge" style="margin-bottom: 1.5rem;">Founder & Lead Developer</div>
+                    <h3>Turning Ideas Into Intelligent Systems</h3>
+                    <p>I'm Shahrukh — a full-stack automation developer from Karachi, Pakistan with 5+ years of experience building AI-powered bots, trading algorithms, and high-converting websites for businesses across the globe.</p>
+                    <p>What started as a passion for Python scripting has grown into a full-fledged agency that has delivered 150+ projects, helping businesses save thousands of hours and dramatically increase their revenue through smart automation.</p>
+                    <div class="about-highlights">
+                        <div class="about-highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Self-taught developer & AI enthusiast</span>
+                        </div>
+                        <div class="about-highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Worked with clients from Pakistan, UK, UAE & USA</span>
+                        </div>
+                        <div class="about-highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>YouTube educator sharing free automation tutorials</span>
+                        </div>
+                        <div class="about-highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Available for local meetups & remote projects worldwide</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 2rem;">Let's Work Together <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It <span class="highlight">Works</span></h2>
+                <p>From idea to delivery — our simple 4-step process.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step glass-panel" data-aos="fade-up">
+                    <div class="process-number">01</div>
+                    <div class="process-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Discuss</h3>
+                    <p>You tell us exactly what you need. We hop on WhatsApp or a quick call to understand your goals, requirements, and budget.</p>
+                </div>
+                <div class="process-step glass-panel" data-aos="fade-up">
+                    <div class="process-number">02</div>
+                    <div class="process-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Quote & Plan</h3>
+                    <p>We send you a clear quote with timeline and scope. No hidden charges, no surprises. You approve, we start building.</p>
+                </div>
+                <div class="process-step glass-panel" data-aos="fade-up">
+                    <div class="process-number">03</div>
+                    <div class="process-icon"><i class="fas fa-code"></i></div>
+                    <h3>Build & Test</h3>
+                    <p>Our team codes, tests, and perfects your project. We share progress updates so you're never left in the dark.</p>
+                </div>
+                <div class="process-step glass-panel" data-aos="fade-up">
+                    <div class="process-number">04</div>
+                    <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Deliver & Support</h3>
+                    <p>We deploy your project, train you on how to use it, and provide ongoing support to ensure everything runs smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+                <p>Quick answers to the most common questions.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item glass-panel" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>How long does a typical project take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>It depends on the complexity. Simple scripts take 1-3 days, WhatsApp bots take 5-7 days, and full web applications can take 2-4 weeks. We always share a clear timeline before starting.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept Visa/Mastercard (via Payoneer), USDT (TRC20), JazzCash, EasyPaisa, and direct bank transfer (Faysal Bank). International clients can pay via Payoneer or crypto.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>Do you offer revisions?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Every project includes 2-3 rounds of revisions within the agreed scope. We want you to be 100% satisfied with the final result.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>Do you provide support after delivery?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We provide 7-14 days of free support after project delivery to fix any bugs or issues. Extended support plans are also available for ongoing projects.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>Can you work with international clients?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We regularly work with clients from Pakistan, UK, UAE, and USA. All communication happens via WhatsApp, email, or Zoom. Time zones are never a problem.</p>
+                    </div>
+                </div>
+                <div class="faq-item glass-panel" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>What if I'm not satisfied with the work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work closely with you throughout the process. If at any milestone you're unhappy, we revise it until it meets your expectations. We also have a fair refund policy — contact us to discuss.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CONTACT -->
     <section id="contact" class="contact">
         <div class="container">
@@ -490,14 +689,22 @@
                 <h2>Let's Build Something <span class="highlight">Great</span></h2>
                 <p>Ready to automate your workflow and build a strong online presence?</p>
                 <div class="contact-info">
-                    <a href="mailto:shahrukharain0313@gmail.com" class="contact-link">
-                        <i class="fas fa-envelope"></i> shahrukharain0313@gmail.com
+                    <a href="mailto:automatewithshahrukh@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i> automatewithshahrukh@gmail.com
                     </a>
                     <a href="https://wa.me/923178172607" target="_blank" class="contact-link whatsapp-link">
                         <i class="fab fa-whatsapp"></i> +92 317 8172607
                     </a>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://formsubmit.co/d03911c482d6084f7ec768dc76fdfae7" method="POST">
+                <div class="hire-platforms">
+                    <a href="https://www.fiverr.com/shahrukh287" target="_blank" class="hire-badge fiverr-badge">
+                        <span class="hire-icon fiverr-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M23.004 18.588h-1.86V5.758h-2.3v12.83h-1.86V5.758h-1.86V3.898h7.88v1.86zm-9.027 0h-1.86V5.758H9.464v12.83H7.232V5.758h-1.86V3.898h7.88v1.86zM1.404 1.831a1.187 1.187 0 1 0 1.187-1.187A1.187 1.187 0 0 0 1.404 1.831z"/></svg></span> Hire on Fiverr
+                    </a>
+                    <a href="https://www.upwork.com/freelancers/~01f56a991ecc31d815?mp_source=share" target="_blank" class="hire-badge upwork-badge">
+                        <span class="hire-icon upwork-icon"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703 0 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></span> Hire on Upwork
+                    </a>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/automatewithshahrukh@gmail.com" method="POST">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_subject" value="New Client Lead - Automate with Shahrukh!">
                     <input type="hidden" name="_template" value="table">
@@ -538,6 +745,11 @@
         </div>
     </section>
 
+    <!-- BACK TO TOP -->
+    <a href="#home" class="back-to-top" id="backToTop" title="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
     <footer>
         <div class="container footer-container">
             <div class="footer-brand">
@@ -547,6 +759,9 @@
                     <a href="https://youtube.com/@automatewithshahrukh?si=WxEPKkkNp6utAdZB" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="https://www.facebook.com/automatewithshahrukh" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/automatewithshahrukh?igsh=MWc4ZG1lbXo4YmFycA==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@automatewithshahrukh" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.fiverr.com/shahrukh287" target="_blank" title="Fiverr" class="fiverr-social"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M23.004 18.588h-1.86V5.758h-2.3v12.83h-1.86V5.758h-1.86V3.898h7.88v1.86zm-9.027 0h-1.86V5.758H9.464v12.83H7.232V5.758h-1.86V3.898h7.88v1.86zM1.404 1.831a1.187 1.187 0 1 0 1.187-1.187A1.187 1.187 0 0 0 1.404 1.831z"/></svg></a>
+                    <a href="https://www.upwork.com/freelancers/~01f56a991ecc31d815?mp_source=share" target="_blank" title="Upwork" class="upwork-social"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703 0 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg></a>
                     <a href="https://wa.me/923178172607" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
@@ -560,7 +775,7 @@
             </div>
             <div class="footer-contact">
                 <h4>Contact</h4>
-                <p><i class="fas fa-envelope" style="color: var(--primary); margin-right: 0.5rem;"></i>shahrukharain0313@gmail.com</p>
+                <p><i class="fas fa-envelope" style="color: var(--primary); margin-right: 0.5rem;"></i>automatewithshahrukh@gmail.com</p>
                 <p><i class="fab fa-whatsapp" style="color: #25D366; margin-right: 0.5rem;"></i>+92 317 8172607</p>
                 <p><a href="https://maps.google.com/?q=Sunny+Plaza+Pakistan+Chowk+Karachi+Office+239+Pakistan" target="_blank" style="color: var(--text-muted); text-decoration: none; transition: color 0.3s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 0.5rem;"></i>Office 239, Sunny Plaza, Pakistan Chowk, Karachi, Pakistan</a></p>
                 <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #aaa;">Available for Local & Remote Projects</p>

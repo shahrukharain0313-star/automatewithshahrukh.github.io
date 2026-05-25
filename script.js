@@ -1,13 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // === PAGE LOADER ===
+    const pageLoader = document.getElementById('pageLoader');
+    if (pageLoader) {
+        const hideLoader = () => pageLoader.classList.add('hidden');
+        // Hide on full load or after 1.5s max (whichever comes first)
+        if (document.readyState === 'complete') {
+            setTimeout(hideLoader, 300);
+        } else {
+            window.addEventListener('load', () => setTimeout(hideLoader, 300));
+        }
+        setTimeout(hideLoader, 1500); // Fallback
+    }
+
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // === BACK TO TOP BUTTON ===
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            if (window.scrollY > 600) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // === ACTIVE NAV HIGHLIGHTING ===
+        const sections = document.querySelectorAll('section[id]');
+        const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+        let currentSection = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        navAnchors.forEach(a => {
+            a.classList.remove('active-section');
+            if (a.getAttribute('href') === '#' + currentSection) {
+                a.classList.add('active-section');
+            }
+        });
     });
 
     // Mobile menu toggle
@@ -250,5 +289,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+    });
+
+    // ===== FAQ ACCORDION =====
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                // Close all other items
+                faqItems.forEach(other => other.classList.remove('active'));
+                // Toggle current
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        }
     });
 });
