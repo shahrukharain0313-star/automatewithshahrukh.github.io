@@ -1,8 +1,7 @@
 // Vercel Serverless Function — AI Chat API
 // Uses Gemini 2.0 Flash (free tier: 15 RPM, 1500 RPD)
 
-// Hardcoded API key as requested (Warning: Not recommended for public repos)
-const GEMINI_API_KEY = 'AIzaSyDGBNW5V5vhNvEApPQ_9KRGn3ZIT3h_rrw';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
 
 // Rate limiting (simple in-memory, resets per cold start)
