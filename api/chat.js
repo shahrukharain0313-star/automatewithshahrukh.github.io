@@ -2,7 +2,7 @@
 // Uses Gemini 2.0 Flash (free tier: 15 RPM, 1500 RPD)
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
 
 // Rate limiting (simple in-memory, resets per cold start)
 const rateLimiter = new Map();

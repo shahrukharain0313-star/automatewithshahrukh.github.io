@@ -1,0 +1,7 @@
+# Ignore environment files with API keys
+.env
+__pycache__/
+*.pyc
+leads.json
+server.py
+test_key.py

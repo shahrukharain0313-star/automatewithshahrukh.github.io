@@ -33,10 +33,7 @@
         }
     });
 
-    chatClose.addEventListener('click', () => {
-        chatWindow.classList.remove('open');
-        chatToggle.classList.remove('active');
-    });
+    // Close handled in AUTO-SEND section below
 
     // ===== SEND MESSAGE =====
     function sendMessage(text) {
@@ -133,38 +130,59 @@
         }, 50);
     }
 
-    // ===== LEAD CAPTURE HANDLER =====
-    function handleLeadCapture(lead) {
-        console.log('🎯 Lead captured:', lead);
-        
-        // Send lead notification via EmailJS (if configured)
-        if (typeof emailjs !== 'undefined') {
-            emailjs.send('default_service', 'lead_template', {
-                lead_name: lead.name || 'Unknown',
-                lead_whatsapp: lead.whatsapp || 'Not provided',
-                lead_project: lead.project || 'Not specified',
-                chat_history: conversationHistory.map(m => 
-                    `${m.role === 'user' ? '👤 Client' : '🤖 Shah'}: ${m.content}`
-                ).join('\n\n')
-            }).then(() => {
-                console.log('Lead email sent!');
-            }).catch(err => {
-                console.error('EmailJS error:', err);
-            });
-        }
+    // ===== AUTO EMAIL SYSTEM =====
+    let conversationEmailed = false;
 
-        // Also send via WhatsApp notification (opens in new tab for now)
-        const whatsappMsg = encodeURIComponent(
-            `🎯 NEW LEAD from Website Chatbot!\n\n` +
-            `📛 Name: ${lead.name || 'Unknown'}\n` +
-            `📱 WhatsApp: ${lead.whatsapp || 'Not provided'}\n` +
-            `📝 Project: ${lead.project || 'Not specified'}\n\n` +
-            `💬 Full chat available in email.`
-        );
+    function sendConversationEmail(lead) {
+        if (conversationEmailed) return;
+        // Only send if there's actual conversation (more than welcome msg)
+        if (conversationHistory.length < 1) return;
         
-        // Silently log — actual WhatsApp notification can be backend-triggered
-        console.log(`WhatsApp notification: https://wa.me/923178172607?text=${whatsappMsg}`);
+        conversationEmailed = true;
+
+        const payload = {
+            name: lead ? (lead.name || 'Unknown Visitor') : 'Unknown Visitor',
+            whatsapp: lead ? (lead.whatsapp || 'Not collected') : 'Not collected',
+            project: lead ? (lead.project || 'Not specified') : 'General inquiry',
+            conversation: conversationHistory
+        };
+
+        // Use sendBeacon for reliability (works even on page close)
+        const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+        const sent = navigator.sendBeacon('/api/lead', blob);
+        
+        // Fallback to fetch if sendBeacon fails
+        if (!sent) {
+            fetch('/api/lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                keepalive: true
+            }).catch(() => {});
+        }
     }
+
+    // ===== LEAD CAPTURE (AI collected contact info) =====
+    function handleLeadCapture(lead) {
+        sendConversationEmail(lead);
+    }
+
+    // ===== AUTO-SEND on chat close =====
+    chatClose.addEventListener('click', () => {
+        chatWindow.classList.remove('open');
+        chatToggle.classList.remove('active');
+        // Email conversation when client closes chat
+        if (conversationHistory.length >= 1) {
+            sendConversationEmail(null);
+        }
+    });
+
+    // ===== AUTO-SEND when leaving page =====
+    window.addEventListener('beforeunload', () => {
+        if (conversationHistory.length >= 1) {
+            sendConversationEmail(null);
+        }
+    });
 
     // ===== EVENT LISTENERS =====
     chatSend.addEventListener('click', () => sendMessage(chatInput.value));
