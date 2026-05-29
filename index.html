@@ -793,7 +793,40 @@
             </div>
         </div>
     </footer>
+    <!-- AI CHAT WIDGET -->
+    <button class="chat-toggle" id="chatToggle" title="Chat with AI Assistant">
+        <i class="fas fa-robot"></i>
+        <span class="chat-badge"></span>
+    </button>
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-header-avatar">🤖</div>
+            <div class="chat-header-info">
+                <h4>Shah — AI Assistant</h4>
+                <span>Online now</span>
+            </div>
+            <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-msg ai">Hey! Welcome to Automate with Shahrukh 👋 I'm Shah, your AI assistant. How can I help you today?</div>
+        </div>
+        <div class="chat-typing" id="chatTyping">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="chat-quick-actions" id="chatQuickActions">
+            <button class="chat-quick-btn" data-msg="What services do you offer?">🛠️ Services</button>
+            <button class="chat-quick-btn" data-msg="Show me your pricing">💰 Pricing</button>
+            <button class="chat-quick-btn" data-msg="I need a WhatsApp bot">🤖 WhatsApp Bot</button>
+            <button class="chat-quick-btn" data-msg="I want a trading bot">📈 Trading Bot</button>
+            <button class="chat-quick-btn" data-msg="I need a website">🌐 Website</button>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." autocomplete="off">
+            <button class="chat-send" id="chatSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
