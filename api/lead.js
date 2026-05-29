@@ -49,7 +49,7 @@ Reply to this lead ASAP on WhatsApp!`;
       _captcha: 'false'
     });
 
-    const emailResponse = await fetch('https://formsubmit.co/ajax/shahrukharain0313@gmail.com', {
+    const emailResponse = await fetch('https://formsubmit.co/ajax/automatewithshahrukh@gmail.com', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/x-www-form-urlencoded', 
