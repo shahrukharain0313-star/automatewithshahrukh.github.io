@@ -51,7 +51,12 @@ Reply to this lead ASAP on WhatsApp!`;
 
     const emailResponse = await fetch('https://formsubmit.co/ajax/shahrukharain0313@gmail.com', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/x-www-form-urlencoded', 
+        'Accept': 'application/json',
+        'Origin': 'https://automatewithshahrukh.vercel.app',
+        'Referer': 'https://automatewithshahrukh.vercel.app/'
+      },
       body: formData.toString()
     });
 
