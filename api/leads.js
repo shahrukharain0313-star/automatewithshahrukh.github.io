@@ -15,8 +15,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const KV_URL = process.env.KV_REST_API_URL;
-    const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+    const KV_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+    const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
 
     // If Vercel KV is not set up yet, return empty array safely
     if (!KV_URL || !KV_TOKEN) {

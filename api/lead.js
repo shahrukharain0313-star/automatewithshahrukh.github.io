@@ -55,9 +55,9 @@ Reply to this lead ASAP on WhatsApp!`;
       body: formData.toString()
     });
 
-    // ----- VERCEL KV DATABASE SAVING -----
-    const KV_URL = process.env.KV_REST_API_URL;
-    const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+    // ----- VERCEL KV / UPSTASH DATABASE SAVING -----
+    const KV_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+    const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
 
     let dbSaved = false;
     if (KV_URL && KV_TOKEN) {
