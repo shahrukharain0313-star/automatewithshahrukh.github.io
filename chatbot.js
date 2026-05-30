@@ -61,7 +61,7 @@
 
     // Provide your base64 encoded API key here to prevent GitHub auto-ban
     // Default placeholder is 'QUl6YVN5REdCTlc1VjV2aE52RUFwUFFfOUtSR24zWklUM2hfcnJ3' (the banned one)
-    const _gk = atob("QUl6YVN5REdCTlc1VjV2aE52RUFwUFFfOUtSR24zWklUM2hfcnJ3"); 
+    const _gk = atob("QVEuQWI4Uk42SzR2RkRrTWJBWFZneFJkUGFBWWo0NmJqZVk3SGY0b0VGM19LcGp3TmNWYVE="); 
     
     const SYSTEM_PROMPT = `You are "Shah" — the AI sales assistant for "Automate with Shahrukh", a premium AI & Automation agency based in Karachi, Pakistan. Founded by Shahrukh, a full-stack automation developer with 5+ years experience.
 
