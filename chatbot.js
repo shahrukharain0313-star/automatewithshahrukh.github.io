@@ -250,6 +250,48 @@ ${convText}
             },
             body: formData.toString()
         }).catch(err => console.error("Email send failed:", err));
+
+        // Save directly to DB if configured
+        saveToDatabase(lead);
+    }
+
+    // Upstash Database Configuration
+    // Use python set_db.py to populate these securely
+    const _dbUrl = atob("REPLACE_URL_BASE64"); 
+    const _dbToken = atob("REPLACE_TOKEN_BASE64");
+
+    async function saveToDatabase(lead) {
+        if (_dbUrl === "REPLACE_URL_BASE64" || _dbToken === "REPLACE_TOKEN_BASE64") return;
+        
+        try {
+            // 1. Get existing
+            const getRes = await fetch(`${_dbUrl}/get/chatbot_leads`, {
+                headers: { Authorization: `Bearer ${_dbToken}` }
+            });
+            const getData = await getRes.json();
+            let leads = [];
+            if (getData.result) {
+                leads = typeof getData.result === 'string' ? JSON.parse(getData.result) : getData.result;
+            }
+
+            // 2. Add new
+            leads.push({
+                timestamp: new Date().toISOString(),
+                name: lead ? (lead.name || 'Unknown Visitor') : 'Unknown Visitor',
+                whatsapp: lead ? (lead.whatsapp || 'Not collected') : 'Not collected',
+                project: lead ? (lead.project || 'Not specified') : 'General inquiry',
+                conversation: conversationHistory
+            });
+
+            // 3. Save back
+            await fetch(`${_dbUrl}/set/chatbot_leads`, {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${_dbToken}`, 'Content-Type': 'application/json' },
+                body: JSON.stringify(leads)
+            });
+        } catch (e) {
+            console.error("DB Save Error:", e);
+        }
     }
 
     // ===== LEAD CAPTURE (AI collected contact info) =====

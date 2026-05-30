@@ -344,17 +344,32 @@
             if (e.key === 'Enter') checkLogin();
         });
 
+        // Database Credentials
+        const _dbUrl = atob("REPLACE_URL_BASE64"); 
+        const _dbToken = atob("REPLACE_TOKEN_BASE64");
+
         async function fetchLeads() {
             try {
-                const response = await fetch('/api/leads');
-                const leads = await response.json();
+                if (_dbUrl === "REPLACE_URL_BASE64" || _dbToken === "REPLACE_TOKEN_BASE64") {
+                    throw new Error("Database not configured. Please run set_db.py");
+                }
+
+                const response = await fetch(`${_dbUrl}/get/chatbot_leads`, {
+                    headers: { Authorization: `Bearer ${_dbToken}` }
+                });
+                const data = await response.json();
+                
+                let leads = [];
+                if (data.result) {
+                    leads = typeof data.result === 'string' ? JSON.parse(data.result) : data.result;
+                }
                 
                 // Sort by newest first
                 allLeads = leads.reverse();
                 renderLeadsList();
             } catch(e) {
                 console.error("Error fetching leads:", e);
-                document.getElementById('leadsList').innerHTML = '<div style="padding:20px; text-align:center; color:red;">Failed to load leads. Make sure server is running.</div>';
+                document.getElementById('leadsList').innerHTML = `<div style="padding:20px; text-align:center; color:red;">${e.message || "Failed to load leads from database."}</div>`;
             }
         }
 
