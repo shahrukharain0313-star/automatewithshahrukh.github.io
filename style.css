@@ -964,5 +964,6 @@ section[id] {
         bottom: 0; left: 0; right: 0;
         width: 100%; height: 100vh;
         border-radius: 0;
+        z-index: 10000; /* Fix overlap with WhatsApp button on mobile */
     }
 }
