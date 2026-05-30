@@ -54,8 +54,8 @@ Reply to this lead ASAP on WhatsApp!`;
       headers: { 
         'Content-Type': 'application/x-www-form-urlencoded', 
         'Accept': 'application/json',
-        'Origin': 'https://automatewithshahrukh.vercel.app',
-        'Referer': 'https://automatewithshahrukh.vercel.app/'
+        'Origin': 'https://automatewithshahrukh.com',
+        'Referer': 'https://automatewithshahrukh.com/'
       },
       body: formData.toString()
     });

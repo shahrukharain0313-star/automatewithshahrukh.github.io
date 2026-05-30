@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://automatewithshahrukh.vercel.app/sitemap.xml
+Sitemap: https://automatewithshahrukh.com/sitemap.xml

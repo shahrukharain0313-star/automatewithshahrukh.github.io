@@ -50,7 +50,7 @@ CONTACT INFO:
 - Office: Office 239, Sunny Plaza, Pakistan Chowk, Karachi
 
 PORTFOLIO LINKS:
-- Website: https://automatewithshahrukh.vercel.app
+- Website: https://automatewithshahrukh.com
 - Fiverr: https://www.fiverr.com/shahrukh287
 - Upwork: https://www.upwork.com/freelancers/~01f56a991ecc31d815
 - YouTube: https://youtube.com/@automatewithshahrukh
