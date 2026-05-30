@@ -257,8 +257,8 @@ ${convText}
 
     // Upstash Database Configuration
     // Use python set_db.py to populate these securely
-    const _dbUrl = atob("REPLACE_URL_BASE64"); 
-    const _dbToken = atob("REPLACE_TOKEN_BASE64");
+    const _dbUrl = atob("aHR0cHM6Ly9lbmhhbmNlZC1oYWxpYnV0LTEzOTM2Ny51cHN0YXNoLmlv"); 
+    const _dbToken = atob("Z1FBQUFBQUFpQm5BQUlnY0RKa05qQTBaalF6TURoa016TTBaVEV4WW1VNE5UZ3hPVFEzTW1FNE1XTTJZV2c=");
 
     async function saveToDatabase(lead) {
         if (_dbUrl === "REPLACE_URL_BASE64" || _dbToken === "REPLACE_TOKEN_BASE64") return;
